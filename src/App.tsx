@@ -32,11 +32,13 @@ function App() {
       <div className="mt-5 grid grid-cols-2">
         <div className="m-3">
           <h2 className="mb-5 text-xl">Entries</h2>
-          <div className="flex">
-            <Search />
+          <div className="mb-3 flex">
+            <div className="m-1 flex-grow">
+              <Search />
+            </div>
             <button
               type="button"
-              className="inline-flex items-center rounded-lg border border-gray-300 bg-gray-50 px-5 py-2.5 text-center text-sm font-medium hover:bg-gray-300"
+              className="m-1 inline-flex items-center rounded-lg border border-gray-300 bg-gray-50 px-5 py-2.5 text-center text-sm font-medium hover:bg-gray-300"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -52,7 +54,7 @@ function App() {
 
             <button
               type="button"
-              className="inline-flex items-center rounded-lg border border-gray-300 bg-gray-50 px-5 py-2.5 text-center text-sm font-medium hover:bg-gray-300"
+              className="m-1 inline-flex items-center rounded-lg border border-gray-300 bg-gray-50 px-5 py-2.5 text-center text-sm font-medium hover:bg-gray-300"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"

@@ -1,6 +1,6 @@
 const Search = () => {
   return (
-    <form className="max-w-md flex-grow">
+    <form className="max-w-md">
       <label className="sr-only mb-2 text-sm font-medium text-gray-900">
         Search
       </label>
