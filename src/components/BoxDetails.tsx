@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Box } from "../../types";
 
 interface props {
@@ -7,10 +7,41 @@ interface props {
 
 const BoxDetails = ({ box }: props) => {
   const id = box.id;
-  const [height, setHeight] = useState(box.height);
-  const [depth, setDepth] = useState(box.depth);
-  const [length, setLength] = useState(box.length);
-  const [comment, setComment] = useState(box.comment);
+  const [height, setHeight] = useState(0);
+  const [depth, setDepth] = useState(0);
+  const [length, setLength] = useState(0);
+  const [comment, setComment] = useState("");
+
+  const [reset, setReset] = useState(false);
+
+  const undoChanges = () => {
+    // Toggle reset state to trigger useEffect
+    if (
+      window.confirm(
+        "Are you sure you want to undo all changes? This will reset all values to the original state and changes will be lost.",
+      )
+    ) {
+      setReset(!reset);
+    }
+  };
+
+  const deleteBox = () => {
+    if (
+      window.confirm(
+        "Are you sure you want to delete this box? This action cannot be undone!",
+      )
+    ) {
+      console.log("delete box");
+    }
+  };
+
+  // update values when selected box changes
+  useEffect(() => {
+    setHeight(box.height);
+    setDepth(box.depth);
+    setLength(box.length);
+    setComment(box.comment || "");
+  }, [box, reset]);
 
   const saveChanges = () => {
     console.log("save changes");
@@ -19,12 +50,14 @@ const BoxDetails = ({ box }: props) => {
   console.log("in box", box);
   return (
     <div className="rounded-md bg-white">
-      <div className="m-3 mb-5 flex flex-col">
-        <div className="m-1 flex items-center justify-between">
+      <div className="m-5 mb-5 flex flex-col">
+        <div className="mt-3 flex items-center justify-between">
           <h2 className="text-2xl">ID: {id}</h2>
           <div className="flex">
             <button
               type="button"
+              onClick={undoChanges}
+              title="Undo changes"
               className="m-1 inline-flex items-center rounded-lg border border-gray-300 bg-gray-50 px-5 py-2.5 text-center text-sm font-medium hover:bg-gray-300"
             >
               <svg
@@ -37,10 +70,11 @@ const BoxDetails = ({ box }: props) => {
               >
                 <path d="m15 15-6 6m0 0-6-6m6 6V9a6 6 0 0 1 12 0v3" />
               </svg>
-              Undo changes
             </button>
             <button
               type="button"
+              onClick={deleteBox}
+              title="Delete box"
               className="m-1 inline-flex items-center rounded-lg border border-gray-300 bg-gray-50 px-5 py-2.5 text-center text-sm font-medium hover:bg-red-500"
             >
               <svg
@@ -57,49 +91,50 @@ const BoxDetails = ({ box }: props) => {
           </div>
         </div>
         <form action="">
-          <div className="">
+          <div className="mb-3">
             <label htmlFor="height">Height: </label>
             <input
-              className="w-full p-2"
+              className="w-full rounded-md border-2 border-gray-300 p-2"
               name="height"
               type="number"
               value={height}
               onChange={(e) => setHeight(parseInt(e.target.value))}
             />
           </div>
-          <div>
+          <div className="mb-3">
             <label htmlFor="depth">Depth: </label>
             <input
-              className="w-full p-2"
+              className="w-full rounded-md border-2 border-gray-300 p-2"
               name="depth"
               type="number"
               value={depth}
               onChange={(e) => setDepth(parseInt(e.target.value))}
             />
           </div>
-          <div>
+          <div className="mb-3">
             <label htmlFor="length">Length: </label>
             <input
-              className="w-full p-2"
+              className="w-full rounded-md border-2 border-gray-300 p-2"
               name="length"
               type="number"
               value={length}
               onChange={(e) => setLength(parseInt(e.target.value))}
             />
           </div>
-          <div>
+          <div className="mb-3">
             <label htmlFor="comment">Comment: </label>
-            <input
-              className="w-full p-2"
+            <textarea
+              className="w-full rounded-md border-2 border-gray-300 p-2"
               name="comment"
-              type="text"
               value={comment}
               onChange={(e) => setComment(e.target.value)}
+              rows={5}
             />
           </div>
           <button
             type="button"
-            className="m-1 inline-flex items-center rounded-lg border border-gray-300 bg-gray-50 px-5 py-2.5 text-center text-sm font-medium hover:bg-green-500"
+            title="Save changes"
+            className="mb-5 inline-flex items-center rounded-lg border border-gray-300 bg-gray-50 px-5 py-2.5 text-center text-sm font-medium hover:bg-green-500"
             onClick={saveChanges}
           >
             <svg

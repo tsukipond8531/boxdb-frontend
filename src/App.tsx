@@ -4,6 +4,7 @@ import { Box } from "../types";
 import Header from "./components/Header";
 import Search from "./components/Search";
 import BoxDetails from "./components/BoxDetails";
+import BoxList from "./components/BoxList";
 
 const boxes = [
   {
@@ -31,7 +32,7 @@ const boxes = [
 ];
 
 function App() {
-  const [selectedBox, setSelectedBox] = useState<Box>(boxes[0]);
+  const [selectedBox, setSelectedBox] = useState<Box>();
   return (
     <div className="flex min-h-screen flex-col bg-slate-50">
       <Header />
@@ -60,6 +61,7 @@ function App() {
 
             <button
               type="button"
+              title="Refresh list"
               className="m-1 inline-flex items-center rounded-lg border border-gray-300 bg-gray-50 px-5 py-2.5 text-center text-sm font-medium hover:bg-gray-300"
             >
               <svg
@@ -73,22 +75,13 @@ function App() {
               </svg>
             </button>
           </div>
-          <div className="mb-2 grid grid-cols-3 rounded-md bg-white p-3">
+          <div className="mb-3 grid grid-cols-3 rounded-md bg-white p-3">
             <span>ID</span>
             <span>H x D x L (cm)</span>
             <span>Comment</span>
           </div>
           {boxes.map((box) => (
-            <div
-              key={box.id}
-              className="mb-2 grid grid-cols-3 rounded-md bg-white p-2"
-            >
-              <p>{box.id}</p>
-              <p>
-                {box.height} x {box.depth} x {box.length}
-              </p>
-              <p className="truncate">{box.comment}</p>
-            </div>
+            <BoxList key={box.id} box={box} setSelectedBox={setSelectedBox} />
           ))}
         </div>
         <div className="m-3">
