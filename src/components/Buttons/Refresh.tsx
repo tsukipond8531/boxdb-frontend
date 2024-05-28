@@ -1,6 +1,11 @@
 const Refresh = () => {
+  const handleRefresh = () => {
+    // to do make it refresh the list, not the page
+    window.location.reload();
+  };
   return (
     <button
+      onClick={handleRefresh}
       type="button"
       title="Refresh list"
       className="m-1 inline-flex items-center rounded-lg border border-gray-300 bg-gray-50 px-5 py-2.5 text-center text-sm font-medium hover:bg-gray-300"

@@ -30,7 +30,7 @@ function App() {
           <div className="mb-3 flex flex-wrap items-center justify-between">
             <h2 className="mb-5 text-xl">Entries</h2>
             <div className="flex">
-              <Search search={search} setSearch={setSearch} />
+              <Search setSearch={setSearch} />
               <Sort />
               <Refresh />
             </div>

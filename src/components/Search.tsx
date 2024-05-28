@@ -1,16 +1,19 @@
 interface props {
-  search: string;
   setSearch: (search: string) => void;
 }
 
-const Search = ({ search, setSearch }: props) => {
+const Search = ({ setSearch }: props) => {
   const changeValue = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearch(e.target.value);
-    console.log(search);
+  };
+
+  // so the page doesn't refresh if user presses enter
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
   };
 
   return (
-    <form className="relative m-1">
+    <form className="relative m-1" onSubmit={handleSubmit}>
       <div className="">
         <input
           onChange={changeValue}

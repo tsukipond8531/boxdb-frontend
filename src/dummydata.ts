@@ -11,7 +11,7 @@ export const boxes: Box[] = [
     modifiedAt: "2024-05-28T10:49:59Z",
   },
   {
-    id: "2",
+    id: "232535325",
     height: 15,
     depth: 25,
     length: 35,
@@ -19,7 +19,7 @@ export const boxes: Box[] = [
     addedAt: "2024-05-28T09:49:59Z",
   },
   {
-    id: "3",
+    id: "3325235",
     height: 20,
     depth: 30,
     length: 40,
@@ -27,7 +27,7 @@ export const boxes: Box[] = [
     addedAt: "2024-05-28T09:49:59Z",
   },
   {
-    id: "4",
+    id: "453235",
     height: 25,
     depth: 35,
     length: 45,
@@ -35,7 +35,7 @@ export const boxes: Box[] = [
     addedAt: "2024-05-28T09:49:59Z",
   },
   {
-    id: "5",
+    id: "32535",
     height: 30,
     depth: 40,
     length: 50,
@@ -43,7 +43,7 @@ export const boxes: Box[] = [
     addedAt: "2024-05-28T09:49:59Z",
   },
   {
-    id: "6",
+    id: "525356",
     height: 35,
     depth: 45,
     length: 55,
@@ -51,7 +51,7 @@ export const boxes: Box[] = [
     addedAt: "2024-05-28T09:49:59Z",
   },
   {
-    id: "7",
+    id: "625327",
     height: 40,
     depth: 50,
     length: 60,
@@ -59,7 +59,7 @@ export const boxes: Box[] = [
     addedAt: "2024-05-28T09:49:59Z",
   },
   {
-    id: "8",
+    id: "632638",
     height: 45,
     depth: 55,
     length: 65,
@@ -67,7 +67,7 @@ export const boxes: Box[] = [
     addedAt: "2024-05-21T14:45:55Z",
   },
   {
-    id: "9",
+    id: "6326329",
     height: 50,
     depth: 60,
     length: 70,
@@ -75,7 +75,7 @@ export const boxes: Box[] = [
     addedAt: "2024-03-25T15:32:42Z",
   },
   {
-    id: "10",
+    id: "16326320",
     height: 55,
     depth: 65,
     length: 75,
