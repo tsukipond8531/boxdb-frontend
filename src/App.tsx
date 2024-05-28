@@ -97,40 +97,42 @@ function App() {
       <Header />
       <div className="m-3 mt-5 grid sm:grid-cols-1 md:grid-cols-3">
         <div className="m-3 md:col-span-2">
-          <h2 className="mb-5 text-xl">Entries</h2>
-          <div className="mb-3 flex">
-            <Search />
-            <button
-              type="button"
-              className="m-1 inline-flex items-center rounded-lg border border-gray-300 bg-gray-50 px-5 py-2.5 text-center text-sm font-medium hover:bg-gray-300"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                className="mr-2 size-6"
+          <div className="mb-3 flex flex-wrap items-center justify-between">
+            <h2 className="mb-5 text-xl">Entries</h2>
+            <div className="flex">
+              <Search />
+              <button
+                type="button"
+                className="m-1 inline-flex items-center rounded-lg border border-gray-300 bg-gray-50 px-5 py-2.5 text-center text-sm font-medium hover:bg-gray-300"
               >
-                <path d="m19.5 8.25-7.5 7.5-7.5-7.5" />
-              </svg>
-              Sort
-            </button>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  className="mr-2 size-6"
+                >
+                  <path d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+                </svg>
+                Sort
+              </button>
 
-            <button
-              type="button"
-              title="Refresh list"
-              className="m-1 inline-flex items-center rounded-lg border border-gray-300 bg-gray-50 px-5 py-2.5 text-center text-sm font-medium hover:bg-gray-300"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                className="size-6"
+              <button
+                type="button"
+                title="Refresh list"
+                className="m-1 inline-flex items-center rounded-lg border border-gray-300 bg-gray-50 px-5 py-2.5 text-center text-sm font-medium hover:bg-gray-300"
               >
-                <path d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0 3.181 3.183a8.25 8.25 0 0 0 13.803-3.7M4.031 9.865a8.25 8.25 0 0 1 13.803-3.7l3.181 3.182m0-4.991v4.99" />
-              </svg>
-            </button>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  className="size-6"
+                >
+                  <path d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0 3.181 3.183a8.25 8.25 0 0 0 13.803-3.7M4.031 9.865a8.25 8.25 0 0 1 13.803-3.7l3.181 3.182m0-4.991v4.99" />
+                </svg>
+              </button>
+            </div>
           </div>
           <div className="mb-3 grid grid-cols-4 rounded-md bg-white p-5 md:grid-cols-5 md:p-3">
             <span>ID</span>
