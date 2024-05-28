@@ -4,4 +4,6 @@ export interface Box {
   depth: number;
   length: number;
   comment?: string;
+  addedAt: string;
+  modifiedAt?: string;
 }

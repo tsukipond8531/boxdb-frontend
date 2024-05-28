@@ -1,6 +1,6 @@
 const Search = () => {
   return (
-    <form className="max-w-md">
+    <form className="m-1">
       <label className="sr-only mb-2 text-sm font-medium text-gray-900">
         Search
       </label>
@@ -22,7 +22,7 @@ const Search = () => {
         <input
           type="search"
           id="default-search"
-          className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-4 ps-10 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500"
+          className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-4 ps-10 text-sm text-gray-900"
           placeholder="Search by comment"
           required
         />

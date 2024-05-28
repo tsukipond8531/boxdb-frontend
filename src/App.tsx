@@ -6,28 +6,87 @@ import Search from "./components/Search";
 import BoxDetails from "./components/BoxDetails";
 import BoxList from "./components/BoxList";
 
-const boxes = [
+const boxes: Box[] = [
   {
-    id: "112214215",
-    height: 10,
-    depth: 20,
-    length: 30,
+    id: "1122142121444212415",
+    height: 104,
+    depth: 204,
+    length: 304,
     comment: "Box 1",
+    addedAt: "2024-05-28T09:49:59Z",
+    modifiedAt: "2024-05-28T10:49:59Z",
   },
-  { id: "2", height: 15, depth: 25, length: 35, comment: "Box 2" },
-  { id: "3", height: 20, depth: 30, length: 40, comment: "Box 3" },
-  { id: "4", height: 25, depth: 35, length: 45, comment: "Box 4" },
-  { id: "5", height: 30, depth: 40, length: 50, comment: "Box 5" },
-  { id: "6", height: 35, depth: 45, length: 55, comment: "Box 6" },
-  { id: "7", height: 40, depth: 50, length: 60, comment: "Box 7" },
-  { id: "8", height: 45, depth: 55, length: 65, comment: "Box 8" },
-  { id: "9", height: 50, depth: 60, length: 70, comment: "Box 9" },
+  {
+    id: "2",
+    height: 15,
+    depth: 25,
+    length: 35,
+    comment: "Box 2",
+    addedAt: "2024-05-28T09:49:59Z",
+  },
+  {
+    id: "3",
+    height: 20,
+    depth: 30,
+    length: 40,
+    comment: "Box 3",
+    addedAt: "2024-05-28T09:49:59Z",
+  },
+  {
+    id: "4",
+    height: 25,
+    depth: 35,
+    length: 45,
+    comment: "Box 4",
+    addedAt: "2024-05-28T09:49:59Z",
+  },
+  {
+    id: "5",
+    height: 30,
+    depth: 40,
+    length: 50,
+    comment: "Box 5",
+    addedAt: "2024-05-28T09:49:59Z",
+  },
+  {
+    id: "6",
+    height: 35,
+    depth: 45,
+    length: 55,
+    comment: "Box 6",
+    addedAt: "2024-05-28T09:49:59Z",
+  },
+  {
+    id: "7",
+    height: 40,
+    depth: 50,
+    length: 60,
+    comment: "Box 7",
+    addedAt: "2024-05-28T09:49:59Z",
+  },
+  {
+    id: "8",
+    height: 45,
+    depth: 55,
+    length: 65,
+    comment: "Box 8",
+    addedAt: "2024-05-21T14:45:55Z",
+  },
+  {
+    id: "9",
+    height: 50,
+    depth: 60,
+    length: 70,
+    comment: "Box 9",
+    addedAt: "2024-03-25T15:32:42Z",
+  },
   {
     id: "10",
     height: 55,
     depth: 65,
     length: 75,
     comment: "Box 10 pppppppppppppppppppppppppppppppppppppppppppppppp",
+    addedAt: "2024-05-30T09:42:52Z",
   },
 ];
 
@@ -36,13 +95,11 @@ function App() {
   return (
     <div className="flex min-h-screen flex-col bg-slate-50">
       <Header />
-      <div className="mt-5 grid grid-cols-2">
-        <div className="m-3">
+      <div className="m-3 mt-5 grid sm:grid-cols-1 md:grid-cols-3">
+        <div className="m-3 md:col-span-2">
           <h2 className="mb-5 text-xl">Entries</h2>
           <div className="mb-3 flex">
-            <div className="m-1 flex-grow">
-              <Search />
-            </div>
+            <Search />
             <button
               type="button"
               className="m-1 inline-flex items-center rounded-lg border border-gray-300 bg-gray-50 px-5 py-2.5 text-center text-sm font-medium hover:bg-gray-300"
@@ -75,16 +132,18 @@ function App() {
               </svg>
             </button>
           </div>
-          <div className="mb-3 grid grid-cols-3 rounded-md bg-white p-3">
+          <div className="mb-3 grid grid-cols-4 rounded-md bg-white p-5 md:grid-cols-5 md:p-3">
             <span>ID</span>
             <span>H x D x L (cm)</span>
+            <span>Added at</span>
+            <span className="hidden md:block">Modified at</span>
             <span>Comment</span>
           </div>
           {boxes.map((box) => (
             <BoxList key={box.id} box={box} setSelectedBox={setSelectedBox} />
           ))}
         </div>
-        <div className="m-3">
+        <div className="m-3 md:order-2">
           <h2 className="mb-5 text-xl">Detailed info</h2>
           {!selectedBox ? (
             <p className="mt-10 text-center italic text-gray-600">

@@ -32,6 +32,7 @@ const BoxDetails = ({ box }: props) => {
       )
     ) {
       console.log("delete box");
+      // db call to delete box
     }
   };
 
@@ -89,6 +90,12 @@ const BoxDetails = ({ box }: props) => {
               </svg>
             </button>
           </div>
+        </div>
+        <div>
+          <p>Added at {new Date(box.addedAt).toLocaleString()}</p>
+          {box.modifiedAt && (
+            <p>Modified at {new Date(box.modifiedAt).toLocaleString()}</p>
+          )}{" "}
         </div>
         <form action="">
           <div className="mb-3">
