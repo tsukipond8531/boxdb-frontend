@@ -9,6 +9,7 @@ import { boxes } from "./dummydata";
 import Sort from "./components/Buttons/Sort";
 import Refresh from "./components/Buttons/Refresh";
 import BoxListHeaders from "./components/BoxListHeaders";
+import NewBox from "./components/Buttons/NewBox";
 
 function App() {
   const [selectedBox, setSelectedBox] = useState<Box>();
@@ -32,6 +33,7 @@ function App() {
             <div className="flex">
               <Search setSearch={setSearch} />
               <Sort />
+              <NewBox />
               <Refresh />
             </div>
           </div>

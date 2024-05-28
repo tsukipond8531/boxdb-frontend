@@ -48,12 +48,11 @@ const BoxDetails = ({ box }: props) => {
     console.log("save changes");
   };
 
-  console.log("in box", box);
   return (
     <div className="rounded-md bg-white">
       <div className="m-5 mb-5 flex flex-col">
-        <div className="mt-3 flex items-center justify-between">
-          <h2 className="text-2xl">ID: {id}</h2>
+        <div className="mt-3 flex flex-wrap items-center justify-between">
+          <h2 className="mb-2 flex-shrink-0 truncate text-xl">ID: {id}</h2>
           <div className="flex">
             <button
               type="button"
@@ -91,11 +90,11 @@ const BoxDetails = ({ box }: props) => {
             </button>
           </div>
         </div>
-        <div>
+        <div className="mb-5 mt-3">
           <p>Added at {new Date(box.addedAt).toLocaleString()}</p>
           {box.modifiedAt && (
             <p>Modified at {new Date(box.modifiedAt).toLocaleString()}</p>
-          )}{" "}
+          )}
         </div>
         <form action="">
           <div className="mb-3">
