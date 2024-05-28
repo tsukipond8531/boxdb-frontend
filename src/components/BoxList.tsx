@@ -29,7 +29,7 @@ const BoxList = ({ box, setSelectedBox }: props) => {
               {new Date(box.modifiedAt).toLocaleString()}
             </p>
           ) : (
-            <p className="truncate">Not modified</p>
+            <p className="truncate italic text-gray-600">Not modified</p>
           )}
         </div>
         <p className="truncate">{box.comment}</p>
