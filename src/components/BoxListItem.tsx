@@ -15,7 +15,7 @@ const BoxListItem = ({ box, setSelectedBox }: props) => {
     <button
       onClick={setSelected}
       className="mb-2 w-full rounded-md bg-white p-2 text-left hover:bg-gray-100"
-      title={box.comment}
+      title={box.comment ? box.comment : "No comment"}
     >
       <div className="grid grid-cols-4 md:grid-cols-5">
         <p className="truncate">{box.id}</p>
@@ -32,7 +32,11 @@ const BoxListItem = ({ box, setSelectedBox }: props) => {
             <p className="truncate italic text-gray-600">Not modified</p>
           )}
         </div>
-        <p className="truncate">{box.comment}</p>
+        {box.comment ? (
+          <p className="truncate">{box.comment}</p>
+        ) : (
+          <p className="truncate italic text-gray-600">No comment</p>
+        )}
       </div>
     </button>
   );

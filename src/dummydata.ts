@@ -139,11 +139,10 @@ export const boxes: Box[] = [
     addedAt: "2024-05-07T12:00:00Z",
   },
   {
-    id: "16326339",
+    id: "missing",
     height: 150,
     depth: 160,
     length: 170,
-    comment: "Box 29",
     addedAt: "2024-05-08T12:00:00Z",
   },
   {

@@ -14,11 +14,11 @@ function App() {
   const [selectedBox, setSelectedBox] = useState<Box>();
   const [search, setSearch] = useState("");
 
-  // Filter boxes based on search input, automatically
+  // Filter boxes based on search input
   // updating the list as the user types. not case-sensitive
   const filteredBoxes = boxes.filter((box) => {
     return (
-      box.comment && box.comment.toLowerCase().includes(search.toLowerCase())
+      search === "" || box.comment?.toLowerCase().includes(search.toLowerCase())
     );
   });
 
