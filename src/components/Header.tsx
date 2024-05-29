@@ -2,7 +2,9 @@ const Header = () => {
   return (
     <header className="rounded-sm bg-white p-3 text-black">
       <div className="flex items-center justify-between">
-        <h1 className="text-xl md:flex">Box dimensions database</h1>
+        <h1 className="text-xl font-semibold md:flex">
+          Box dimensions database
+        </h1>
         <ul className="flex items-center">
           <li>
             <a

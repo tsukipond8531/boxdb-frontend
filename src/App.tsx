@@ -8,7 +8,6 @@ import BoxList from "./components/BoxList";
 import { boxes } from "./dummydata";
 import Sort from "./components/Buttons/Sort";
 import Refresh from "./components/Buttons/Refresh";
-import BoxListHeaders from "./components/BoxListHeaders";
 import NewBox from "./components/Buttons/NewBox";
 
 function App() {
@@ -37,10 +36,10 @@ function App() {
               <Refresh />
             </div>
           </div>
-          <BoxListHeaders />
-          {filteredBoxes.map((box) => (
-            <BoxList key={box.id} box={box} setSelectedBox={setSelectedBox} />
-          ))}
+          <BoxList
+            setSelectedBox={setSelectedBox}
+            filteredBoxes={filteredBoxes}
+          />
         </div>
         <div className="m-3 md:order-2 md:col-span-2">
           <h2 className="mb-5 text-xl">Detailed info</h2>

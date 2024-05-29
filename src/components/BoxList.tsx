@@ -1,40 +1,40 @@
 import { Box } from "../../types";
+import { Pagination } from "flowbite-react";
+import BoxListHeaders from "./BoxListHeaders";
+import BoxListItem from "./BoxListItem";
+import { useState } from "react";
 
 interface props {
-  box: Box;
+  filteredBoxes: Box[];
   setSelectedBox: (box: Box) => void;
 }
 
-const BoxList = ({ box, setSelectedBox }: props) => {
-  const setSelected = () => {
-    console.log("setSelected");
-    setSelectedBox(box);
-  };
+const BoxList = ({ filteredBoxes, setSelectedBox }: props) => {
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 10; // Change this to control how many boxes are displayed per page
+
+  const onPageChange = (page: number) => setCurrentPage(page);
+
+  const displayedBoxes = filteredBoxes.slice(
+    (currentPage - 1) * itemsPerPage,
+    currentPage * itemsPerPage,
+  );
 
   return (
-    <button
-      onClick={setSelected}
-      className="mb-2 w-full rounded-md bg-white p-2 text-left hover:bg-gray-100"
-      title={box.comment}
-    >
-      <div className="grid grid-cols-4 md:grid-cols-5">
-        <p className="truncate">{box.id}</p>
-        <p className="truncate">
-          {box.height} x {box.depth} x {box.length}
-        </p>
-        <p className="truncate">{new Date(box.addedAt).toLocaleString()}</p>
-        <div className="hidden md:block">
-          {box.modifiedAt ? (
-            <p className="truncate">
-              {new Date(box.modifiedAt).toLocaleString()}
-            </p>
-          ) : (
-            <p className="truncate italic text-gray-600">Not modified</p>
-          )}
-        </div>
-        <p className="truncate">{box.comment}</p>
+    <div>
+      <BoxListHeaders />
+      {displayedBoxes.map((box) => (
+        <BoxListItem key={box.id} box={box} setSelectedBox={setSelectedBox} />
+      ))}
+      <div className="mt-4 flex overflow-x-auto sm:justify-center">
+        <Pagination
+          currentPage={currentPage}
+          totalPages={Math.ceil(filteredBoxes.length / itemsPerPage)}
+          onPageChange={onPageChange}
+          showIcons
+        />
       </div>
-    </button>
+    </div>
   );
 };
 
